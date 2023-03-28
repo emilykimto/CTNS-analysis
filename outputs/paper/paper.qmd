@@ -1,113 +1,80 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
-author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
+title: "Understanding Cannabis Usage in Canada: Consistent Demographic Patterns in Cannabis Use Across Canada May Positively Correlate to High Frequency Use"
+subtitle: "An analysis of the 2021 Canadian Tobacco and Nicotine Survey (CTNS)"
+author: "Emily Kim"
+thanks: "Code and data are available at: https://github.com/emilykimto/CTNS-analysis.git"
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "The widespread use of tobacco, vaping, and cannabis in Canada has been an ongoing public health concern given their commonly associated negative health impacts including respiratory issues, impaired cognitive development, and addiction. To gain a deeper understanding of the factors driving usage rates for cannabis specifically, this paper aims to investigate the relationship between age, gender, region, and consumption method and frequency in Canada. By utilizing the data from Statistics Canada, we found that young adults and males are more likely to use cannabis products with higher usage rates in certain regions of Canada. The implications and possible solutions for addressing high usage rates are also discussed."
 format: pdf
+toc: TRUE
 number-sections: true
 bibliography: references.bib
 ---
 
 ```{r}
 #| include: false
-#| warning: false
-#| message: false
 
-library(tidyverse)
-library(palmerpenguins)
 ```
 
 
-# Introduction
+# Introduction {#sec-introduction}
 
-You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point. 
+In 2018, the Canadian government, led by Prime Minister Justin Trudeau, made a historic decision to legalize the use of marijuana after a century of prohibition. While this move was praised as a step towards progressive drug policy by some, others expressed concerns about the potential negative effects on public health. Of particular concern was the potential increase in cannabis usage rates among the general population, especially young adults who would be at a higher long-term risk of negative health outcomes similar to those associated with tobacco, such respiratory issues, impaired cognitive development, and addiction.
+
+In light of this recent legalization and the still ongoing research surrounding the effects of marijuana, I analyzed data from the 2021 Canadian Tobacco and Nicotine Survey (CTNS) obtained from Open Government Data of Statistics Canada to uncover the demographic that would be the most impacted by any negative health effects of cannabis products. To gain a more comprehensive understanding of what factors drive usage rates, I explore the estimand, how does user characteristics such as age, gender, and region correlate with cannabis consumption methods (smoking, vaping, taking edibles) and their respective frequencies of usage in Canada.
+
+I will first discuss the source of our data, its biases, and review the CTNS sampling and key features. Then, I will discuss the results to identify the demographic patterns of cannabis usage in Canada, cannabis product type, and consumption frequency to discuss potential underlying user behaviour and motivations. Finally, I discuss the implications of the findings and possible solutions as to how public policy can better tackle the ongoing phenomenon of increasing substance use, as well as the weaknesses and future steps of this paper.
+
+# Data and Methods {#sec-data}
+
+## Data Management {#sec-first-point}
+
+## Source {#sec-second-point}
+
+## Sampling {#sec-third-point}
+
+## Key Features {#sec-fourth-point}
+
+## Bias and Ethics {#sec-fifth-point}
 
 
-
-# Data {#sec-data}
-
-Our data is of penguins (@fig-bills).
-
-```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
-#| echo: false
-
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Talk more about it.
-
-Also bills and their average (@fig-billssssss). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work.)
-
-```{r}
-#| label: fig-billssssss
-#| fig-cap: More bills of penguins
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4
-
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Talk way more about it. 
+# Model {#sec-model}
 
 
 
-# Model
-
-$$
-Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}
-$$ {#eq-bayes}
-
-@eq-bayes seems useful, eh?
-
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful. 
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
+# Results {#sec-results}
 
 
-# Results
 
-# Discussion
+# Discussion {#sec-discussion}
 
 ## First discussion point {#sec-first-point}
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+The demographic patterns of vaping, cannabis, and tobacco usage in Canada (age, gender, and region).
 
-## Second discussion point
+Data: age, gender, region
 
-## Third discussion point
+## Second discussion point {#sec-second-point}
 
-## Weaknesses and next steps
+Why Canadians use tobacco, cannabis, and nicotine products
+The concurrent use of tobacco, nicotine, and cannabis (point to data but also to a research article demonstrating alignment with external studies).
 
-Weaknesses and next steps should also be included.
+Data: why young adults use, how frequently?
+
+## Weaknesses and Next Steps {#sec-weaknesses-and-next-steps}
+
+Discuss implications and possible solutions
+
+Data: when do Canadians start using - how can public policy tackle that initial (is it a matter of mental health?)
+
 
 \newpage
 
 \appendix
 
-# Appendix {-}
+# Appendix {#sec-appendix}
 
-
-# Additional details
 
 
 \newpage
