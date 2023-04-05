@@ -5,7 +5,7 @@ author: "Emily Kim"
 thanks: "Code and data are available at: https://github.com/emilykimto/CTNS-analysis.git"
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
-abstract: "The widespread use of tobacco, vaping, and cannabis in Canada has been an ongoing public health concern given their commonly associated negative health impacts including respiratory issues, impaired cognitive development, and addiction. To gain a deeper understanding of the factors driving usage rates for cannabis specifically, this paper aims to investigate the relationship between age, gender, region, and consumption method and frequency in Canada. By utilizing the data from Statistics Canada, we found that young adults and males are more likely to use cannabis products with higher usage rates in certain regions of Canada. The implications and possible solutions for addressing high usage rates are also discussed."
+abstract: "The widespread use of tobacco, vaping, and cannabis in Canada has been an ongoing public health concern given their commonly associated negative health impacts including respiratory issues, impaired cognitive development, and addiction. To gain a deeper understanding of the factors driving usage rates for cannabis specifically, this paper aims to investigate the relationship between demographics such as gender and region, versus consumption method and frequency in Canada. By utilizing the data from Statistics Canada, we found that young adults and males are more likely to use cannabis products with higher usage rates in certain regions of Canada. The implications and possible solutions for addressing high usage rates are also discussed."
 format: pdf
 toc: TRUE
 number-sections: true
@@ -17,14 +17,13 @@ bibliography: references.bib
 
 ```
 
-
 # Introduction {#sec-introduction}
 
-In 2018, the Canadian government, led by Prime Minister Justin Trudeau, made a historic decision to legalize the use of marijuana after a century of prohibition. While this move was praised as a step towards progressive drug policy by some, others expressed concerns about the potential negative effects on public health. Of particular concern was the potential increase in cannabis usage rates among the general population, especially young adults who would be at a higher long-term risk of negative health outcomes similar to those associated with tobacco, such respiratory issues, impaired cognitive development, and addiction.
+In 2018, the Canadian government, led by Prime Minister Justin Trudeau, made the landmark decision to legalize the use of marijuana after a century of prohibition. While this move was praised as a step towards progressive drug policy by some, others expressed concerns about the potential negative effects on public health. Of particular concern was the potential increase in cannabis usage rates among the general population, especially young adults who would be at a higher long-term risk of negative health outcomes similar to those associated with tobacco, such respiratory issues, impaired cognitive development, and addiction.
 
 In light of this recent legalization and the still ongoing research surrounding the effects of marijuana, I analyzed data from the 2021 Canadian Tobacco and Nicotine Survey (CTNS) obtained from Open Government Data of Statistics Canada to uncover the demographic that would be the most impacted by any negative health effects of cannabis products. To gain a more comprehensive understanding of what factors drive usage rates, I explore the estimand, how does user characteristics such as age, gender, and region correlate with cannabis consumption methods (smoking, vaping, taking edibles) and their respective frequencies of usage in Canada.
 
-I will first discuss the source of our data, its biases, and review the CTNS sampling and key features. Then, I will discuss the results to identify the demographic patterns of cannabis usage in Canada, cannabis product type, and consumption frequency to discuss potential underlying user behaviour and motivations. Finally, I discuss the implications of the findings and possible solutions as to how public policy can better tackle the ongoing phenomenon of increasing substance use, as well as the weaknesses and future steps of this paper.
+I will first discuss the source of our data, its biases, and review the CTNS sampling and key features. Then, I will create a model and discuss analysis results to identify the demographic patterns of cannabis usage in Canada, cannabis product type, and consumption frequency to discuss potential underlying user behaviour and motivations. Finally, I discuss the implications of the findings and possible solutions as to how public policy can better tackle the ongoing phenomenon of increasing substance use, as well as the weaknesses and future steps of this paper.
 
 # Data and Methods {#sec-data}
 
@@ -38,36 +37,29 @@ I will first discuss the source of our data, its biases, and review the CTNS sam
 
 ## Bias and Ethics {#sec-fifth-point}
 
-
 # Model {#sec-model}
 
-
-
 # Results {#sec-results}
-
-
 
 # Discussion {#sec-discussion}
 
 ## First discussion point {#sec-first-point}
 
-The demographic patterns of vaping, cannabis, and tobacco usage in Canada (age, gender, and region).
+The demographic patterns of cannabis usage across Canada.
 
-Data: age, gender, region
+Data - consider age (or) gender and region
 
 ## Second discussion point {#sec-second-point}
 
-Why Canadians use tobacco, cannabis, and nicotine products
-The concurrent use of tobacco, nicotine, and cannabis (point to data but also to a research article demonstrating alignment with external studies).
+Data - cannabis product types and their consumption frequency.
 
-Data: why young adults use, how frequently?
+Discuss potential underlying user behaviour and motivations.
+
+Why do Canadians use cannabis?
 
 ## Weaknesses and Next Steps {#sec-weaknesses-and-next-steps}
 
 Discuss implications and possible solutions
-
-Data: when do Canadians start using - how can public policy tackle that initial (is it a matter of mental health?)
-
 
 \newpage
 
@@ -75,11 +67,6 @@ Data: when do Canadians start using - how can public policy tackle that initial 
 
 # Appendix {#sec-appendix}
 
-
-
 \newpage
 
-
 # References
-
-
