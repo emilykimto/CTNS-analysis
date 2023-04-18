@@ -15,6 +15,18 @@ bibliography: references.bib
 ```{r}
 #| include: false
 
+## Load Library ####
+library(tidyverse)
+library(ggplot2)
+library(RColorBrewer)
+library(kableExtra)
+library(knitr)
+library(dplyr)
+
+#### Import cleaned_ctns_2021.csv ####
+cleaned_ctns_2021 <-
+  read.csv(here::here("inputs/data/cleaned_ctns_2021.csv"))
+
 ```
 
 # Introduction {#sec-introduction}
@@ -28,9 +40,11 @@ I will first discuss the source of our data, its biases, and review the CTNS sam
 # Data and Methods {#sec-data}
 
 ## Data Management {#sec-first-point}
+
 This paper utilizes the R statistical programming language [@citeR], along with packages tidyverse [@citetidyverse], here [@citehere], janitor [@citejanitor], and dplyr [@citedplyr]. The figures in this paper have been created using ggplot2 [@citeggplot2] and the tables have been created using knitr [@citeknitr] and kableExtra [@citekablextra]. The color styles in graphs have been created using the RColorBrewer packages [@citercolorbrewer].
 
 ## Source {#sec-second-point}
+
 This paper uses data extracted from the Public Use Microdata File (PUMPF) for the 2021 Canadian Tobacco and Nicotine Survey (CTNS). The CTNS is a national survey conducted by Health Canada to collect information about the prevalence of cigarette smoking, vaping, and cannabis use in Canada. Until 2017, Statistics Canada administered the Canadian Tobacco, Alcohol and Drugs Survey (CTADS), which gathered information on the use of tobacco, alcohol, and drug use across Canada [@citectnspumf]. However, in 2019, the Canadian Alcohol and Drugs Survey (CADS) was carried out specifically to collect data on alcohol and drug use, separately from the Canadian Tobacco and Nicotine Survey (CTNS), which is focused mainly on gathering data on tobacco and nicotine use, including cannabis [@citectnspumf].
 
 The PUMPF is a dataset that contains anonymized, individual-level data from the CTNS [@citectnspumf]. It is a subset of the full survey dataset that involves balancing the preservation of respondent confidentiality and providing the most useful data which is then made available to researchers and analysts who require access to detailed information on tobacco, nicotine, and cannabis use in Canada [@citectnspumf]. The CTNS PUMF includes information on a wide range of variables, including frequency of use, attitudes and beliefs, and use of cessation aids [@citectnspumf]. It also includes demographic variables such as age, gender, and province of residence [@citectnspumf].
@@ -38,29 +52,191 @@ The PUMPF is a dataset that contains anonymized, individual-level data from the 
 Data collection for the 2022 reference period was conducted from December 1, 2020 to May 3, 2021, and was gathered directly and voluntarily from survey respondents either through an electronic questionnaire (EQ) or through CATI (computer- assisted telephone interviewing) [@citectnsinfo]. The 2021 CTNS electronic questionnaire was developed in consultation with Health Canada, and underwent a process of cognitive testing through in-depth interviews conducted by Statistics Canada's Questionnaire Design Resource Centre to test the survey content in both of Canada's official languages [@citectnsinfo].
 
 ## Sampling {#sec-third-point}
+
 The CTNS is designed to provide a comprehensive picture of tobacco, nicotine, and cannabis use, attitudes, and behaviours among non-instituionalized Canadians ages 15 years and older who are not members of collectives or living on reserves [@citectnsinfo]. The survey has a stratified sample and cross-sectional design with sampling units: individuals aged 15 to 24 and individuals aged 25 and older [@citectnsinfo]. For the former (individuals aged 15 to 24), the CTNS sample has a one-stage desion, and the individual is the sampling unit [@citectnsinfo]. For the latter (individuals aged 25 and older), the CTNS sample has a two-stage design where the sampling unit for the first stage is the dwelling, and the sampling unit for the second stage is the individual [@citectnsinfo]. The CTNS used different methods for stratification. For those aged 15 to 24, the sample was stratified by age group and province, with a systematic sample selected independently for each group [@citectnsinfo]. For those aged 25 and older, the sample was stratified by province and a simple random sample of dwellings was selected [@citectnsinfo]. In terms of sampling and subsampling, the survey allocated samples to produce province-level and region-level estimates for the age groups. The initial sample size was 12,000 individuals aged 15-24 and 15,000 dwellings for those aged 25 and older [@citectnsinfo]. The survey sent an initial sample of 27,000 dwellings or individuals for collection [@citectnsinfo].
 
 ## Key Features {#sec-fourth-point}
-This paper investigates the relationship between demographic factors and cannabis use in Canada. More specifically, it explores the estimand, how does characteristics such as user age, gender, and region correlate with cannabis consumption methods (smoking, vaping, taking edibles) and their respective frequencies of usage in Canada. In my analysis, I removed
 
-(not right) -->2,164 responses to account for unanswered or not applicable responses. We did this to ensure that the data used in this paper is complete and representative of all variables. The variables we selected for our analysis can be seen in @tbl-1 and their measurement levels can be seen in @tbl-2. Responses were measured using Likert scales which measured respondents' opinions to the questions being asked.
+This paper investigates the relationship between demographic factors and cannabis use in Canada. More specifically, it explores the estimand, how does characteristics such as user age, gender, and region correlate with cannabis consumption methods (smoking, vaping, taking edibles) and their respective frequencies of usage in Canada. The variables I selected for my analysis can be seen in @tbl-1.
 
+```{r}
+#| include: false
+
+#### Create Variable Description Tibble #### 
+ variable_table <-
+  tibble(
+    "Variable" = c(
+      "AGEGROUP",
+      "GENDER",
+      "PROV_C",
+      "CAN_10AR",
+      "CAN_25AR",
+      "CAN_17R"
+    ),
+    "Variable Description" = c(
+      "Age group of person",
+      "Gender of person",
+      "Province of residence (collection)",
+      "Frequency smoked cannabis - past 30 days",
+      "Frequency vaped cannabis - past 30 days",
+      "Frequency consumed edibles - past 30 days"
+    )
+  )
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-1
+#| tbl-cap: "Variable Descriptions"
+#### Add Variable Table ####
+variable_table |>
+  kable(booktabs = TRUE) |>
+  kable_styling(font_size = 9, latex_options = "hold_position")
+```
+
+The variables were measured using answer categories, which are as follows:
+
+* AGEGROUP: 15 to 19 years old, 20 to 24 years old, 25 to 34 years old, 35 to 44 years old, 45 to 54 years old, 55 to 64 years old, 65 years old and older.
+* GENDER: Male, Female, Not stated.
+* PROV_C: Newfoundland and Labrador, Prince Edward Island, Nova Scotia, New Brunswick, Quebec, Ontario, Manitoba, Saskatchewan, Alberta, British Columbia.
+* CAN_10AR: Daily, Less than daily but at least once a week, Less than once a week but at least once in the past month, Not at all, Valid skip, Not stated.
+* CAN_25AR: Daily, Less than daily but at least once a week, Less than once a week but at least once in the past month, Not at all, Valid skip, Not stated.
+* CAN_17R: At least once in the past 30 days, Not at all, Valid skip, Not stated.
 
 ## Bias and Ethics {#sec-fifth-point}
 
+The 2021 Canadian Tobacco and Nicotine Survey (CTNS) dataset is a valuable resource for understanding smoking habits and attitudes in Canada. However, it is important to consider the ethical and bias implications of the survey.
+
+When it comes to online surveys that rely on voluntary participation from respondents, it's important to ensure that the survey is designed in an ethical manner, meaning that questions are phrased neutrally and not leading, and that respondents are not coerced into participating. To avoid this, the questionnaire underwent cognitive testing through in-depth interviews in both of French and English, conducted by Statistics Canada's Questionnaire Design Resource Centre [@citectnsinfo]. In addition, since participation is voluntary, there may be some bias in the data, as certain individuals or groups may be more likely to respond than others. This can result in a skewed sample that doesn't accurately reflect the population being studied. To address this, the 2021 CTNS implemented a variety of strategies to increase the representation of the sample and minimize potential biases. First, the CTNS used a stratified random sampling method to select participants from all Canadian provinces and territories, ensuring that the sample was diverse and reflective of the Canadian population [@citectnsinfo]. Additionally, the survey was available in both English and French and used a mix of online and phone surveys to reach a broad range of participants [@citectnsinfo].
+
 # Model {#sec-model}
+
+Through exploratory analysis, I discovered a correlation between the gender variable and frequency of smoking cannabis. The relationship appears to be linear as the figures generally demonstrate increasing trends. This also aligns with a 2017 featured research article published the Canadian Institutes of Health Research, in which men were identified as more likely to use cannabis recreationally [@citecihr]. The gender influence continues as the article reported a higher probability for women to consume edible products while men reported more smoking, vaporizing, and use of hash concentrates and oils along with higher rates of use overall [@citecihr].
+
+To further proceed with the analysis and predict the future situation regarding gender and cannabis use via smoking method, I will create a simple linear regression model. In the model, gender will be the predictor variable and cannabis use via smoking method the response variable. One important aspect to note is that this simple linear regression only accounts for the relationship between the two chosen variables and does not account for other variables that may also be influencing the response variable.
+
+```{r}
+#| echo: false
+#| warning: false
+
+# Load the CTNS dataset
+data <- read.csv(here::here("inputs/data/cleaned_ctns_2021.csv"))
+
+# Create a simple linear regression model with gender as predictor variable and cannabis use via smoking as response variable
+
+```
 
 # Results {#sec-results}
 
+When looking at @fig-1, we can see that the majority of respondents identified as male or female with a small portion as "not stated" Among male respondents, there was a higher frequency of smoking cannabis compared to female respondents with a significant, visible difference in "Daily" and "Less than daily but at least once a week" usage. This trend holds true across all answer categories, with higher rates of cannabis use via smoking method among males compared to females aside from the least frequency response "Less than once a week but at least once a month", which may correlate to the aformentioned article in which women tend to use cannabis for medicinal uses whereas males more often use cannabis for recreational purposes.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-1
+#| fig-cap: "Frequency smoked cannabis - past 30 days against Gender"
+#### Creating Graph ####
+cleaned_ctns_2021 |>
+  ggplot(mapping = aes(y = gender, fill = can_10ar)) +
+  geom_bar() + 
+  theme_classic() +
+  labs(y = "Gender of Respondent",
+       x = "Number of Respondents",
+       fill = "Frequency smoked cannabis - past 30 days")+
+  scale_fill_brewer(palette = "Pastel1")+
+  theme(legend.title = element_text(size = 6),
+        legend.text= element_text(size=6))
+```
+
+@fig-2 further highlights the trend of higher cannabis usage through smoking and vaping among male respondents compared to their female counterparts. Notably, the data shows a significant difference between the genders in terms of the "not at all" category for cannabis vaping, indicating that more male respondents prefer smoking over vaping.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-2
+#| fig-cap: "Frequency vaped cannabis - past 30 days against Gender"
+#### Creating Graph ####
+cleaned_ctns_2021 |>
+  ggplot(mapping = aes(y = gender, fill = can_25ar)) +
+  geom_bar() + 
+  theme_classic() +
+  labs(y = "Gender of Respondent",
+       x = "Number of Respondents",
+       fill = "Frequency vaped cannabis - past 30 days")+
+  scale_fill_brewer(palette = "Pastel1")+
+  theme(legend.title = element_text(size = 6),
+        legend.text= element_text(size=6))
+```
+
+@fig-3 depicts a large number of respondents indicating a valid skip, with a larger proportion being females, as with the other figures. The graph also further demonstrates the consistent trend of males engaging in more cannabis use, with more males consuming edibles more frequently than their female counterparts.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-3
+#| fig-cap: "Frequency consumed edibles - past 30 days against Gender"
+#### Creating Graph ####
+cleaned_ctns_2021 |>
+  ggplot(mapping = aes(y = gender, fill = can_17r)) +
+  geom_bar() + 
+  theme_classic() +
+  labs(y = "Gender of Respondent",
+       x = "Number of Respondents",
+       fill = "Frequency consumed edibles - past 30 days")+
+  scale_fill_brewer(palette = "Pastel1")+
+  theme(legend.title = element_text(size = 6),
+        legend.text= element_text(size=6))
+```
+
+In @fig-4, we can see that the top two provinces with the highest number of respondents are Ontario and Quebec. Interestingly, the number of male and female respondents in these provinces are almost equally represented, which seemingly contrasts the initial hypothesis that there would be more male cannabis users. However, it is important to note that the graph displaying the relationship between gender and province of residence is affected by the presence of factors like valid skips and not stated responses which accounted for a significant portion of the survey answers, as shown in the earlier figures. On the other end of the spectrum, the survey has the lowest number of respondents from Newfoundland and Labrador and New Brunswick.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-4
+#| fig-cap: "Gender against Province"
+#### Creating Graph ####
+cleaned_ctns_2021 |>
+  ggplot(mapping = aes(y = prov_c, fill = gender)) +
+  geom_bar() + 
+  theme_classic() +
+  labs(y = "Province of Residence",
+       x = "Number of Respondents",
+       fill = "Gender of Respondent")+
+  scale_fill_brewer(palette = "Pastel1")+
+  theme(legend.title = element_text(size = 6),
+        legend.text= element_text(size=6))
+```
+
+@fig-5 demonstrates the top three age groups with the highest number of respondents, namely 20 to 24 years old, 15 to 19 years old, and 65 years and older. These results allude to the broader societal trends in which the higher number of younger respondents may be due to the fact that cannabis use has become increasingly normalized and socially accepted among younger generations. On the other hand, the higher number of oldere respondents may be attributed to the fact that cannabis use has become more widely accepted for medicinal purposes, leading to an increase in use among older adults. In terms of the ratio of male and female respondents within these age groups, it is also equal to that of @fig-4. Furthermore, it is important to note that the previous figures revealed a trend of more male respondents reporting cannabis usage via smoking, vaping, and consuming edibles. This indicates that the prevalence of cannabis use may be higher among males across all age groups.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-5
+#| fig-cap: "Gender against Age Group"
+#### Creating Graph ####
+cleaned_ctns_2021 |>
+  ggplot(mapping = aes(y = agegroup, fill = gender)) +
+  geom_bar() + 
+  theme_classic() +
+  labs(y = "Age Group",
+       x = "Number of Respondents",
+       fill = "Gender of Respondent")+
+  scale_fill_brewer(palette = "Pastel1")+
+  theme(legend.title = element_text(size = 6),
+        legend.text= element_text(size=6))
+```
+
 # Discussion {#sec-discussion}
 
-## First discussion point {#sec-first-point}
+## First discussion point
 
 The demographic patterns of cannabis usage across Canada.
-
 Data - consider age (or) gender and region
 
-## Second discussion point {#sec-second-point}
+## Second discussion point
 
 Data - cannabis product types and their consumption frequency.
 
