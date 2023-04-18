@@ -27,7 +27,7 @@ simulated_ctns_2021 <-
         "55 to 64 years old",
         "65 years old and older"
       ),
-      size = 10000,
+      size = 4032,
       replace = TRUE
     ),
     "gender" = sample(
@@ -36,7 +36,7 @@ simulated_ctns_2021 <-
         "Female",
         "Not stated"
       ),
-      size = 10000,
+      size = 4032,
       replace = TRUE
     ),
     "province_of_residence" = sample(
@@ -52,7 +52,7 @@ simulated_ctns_2021 <-
         "Alberta",
         "British Columbia"
       ),
-      size = 10000,
+      size = 4032,
       replace = TRUE
     ),
     "frequency_smoked_cannabis" = sample(
@@ -63,7 +63,7 @@ simulated_ctns_2021 <-
         "In the past month",
         "Not at all"
       ),
-      size = 10000,
+      size = 4032,
       replace = TRUE
     ),
     "frequency_vaped_cannabis" = sample(
@@ -74,7 +74,7 @@ simulated_ctns_2021 <-
         "In the past month",
         "Not at all"
       ),
-      size = 10000,
+      size = 4032,
       replace = TRUE
     ),
     "frequency_consumed_edibles" = sample(
@@ -82,7 +82,7 @@ simulated_ctns_2021 <-
         "At least once in the past 30 days",
         "Not at all"
       ),
-      size = 10000,
+      size = 4032,
       replace = TRUE
     ),
     
