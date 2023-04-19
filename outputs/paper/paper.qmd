@@ -191,6 +191,14 @@ cleaned_ctns_2021 |>
 
 In @fig-4, we can see that the top two provinces with the highest number of respondents are Ontario and Quebec. Interestingly, the number of male and female respondents in these provinces are almost equally represented, which seemingly contrasts the initial hypothesis that there would be more male cannabis users. However, it is important to note that the graph displaying the relationship between gender and province of residence is affected by the presence of factors like valid skips and not stated responses which accounted for a significant portion of the survey answers, as shown in the earlier figures. On the other end of the spectrum, the survey has the lowest number of respondents from Newfoundland and Labrador and New Brunswick.
 
+@fig-5 demonstrates the top three age groups with the highest number of respondents, namely 20 to 24 years old, 15 to 19 years old, and 65 years and older. These results allude to the broader societal trends in which the higher number of younger respondents may be due to the fact that cannabis use has become increasingly normalized and socially accepted among younger generations. On the other hand, the higher number of oldere respondents may be attributed to the fact that cannabis use has become more widely accepted for medicinal purposes, leading to an increase in use among older adults. In terms of the ratio of male and female respondents within these age groups, it is also equal to that of @fig-4. Furthermore, it is important to note that the previous figures revealed a trend of more male respondents reporting cannabis usage via smoking, vaping, and consuming edibles. This indicates that the prevalence of cannabis use may be higher among males across all age groups.
+
+# Discussion {#sec-discussion}
+
+## The Demographic Patterns of Cannabis Usage across Canada
+
+The demographic patterns of cannabis usage across Canada offer valuable insights into which groups are more likely to use these products and why. The data shows a clear positive correlation between cannabis use and males, with a higher frequency of smoking cannabis among male respondents compared to females. Across all answer categories, males reported higher rates of cannabis use via smoking, vaping, and consuming edibles than their female counterparts. According to a research article on cannabis use and patterns among Canadians prior to legalization using data from the Canadian Tobacco, Alcohol and Drugs Survey (CTADS), in a 2017 analysis of a total of 4789 individuals in Canada, the prevalence of cannabis use was higher in males (9%) than females (5.9%), with an overall prevalence of 7.4% in the sample [@citebmc]. Other studies have noted that there are distinct differences between male and female cannabis use behaviours. Canadian males reported a 2.4% increase in their lifetime cannabis use between 2002 and 2010, while cannabis use among females remained stagnant during that period [@citebmc]. These insights are evident in @fig-1, @fig-2, and @fig-3, which demonstrates an increased cannabis use in males across all methods of intake.
+
 ```{r}
 #| echo: false
 #| warning: false
@@ -209,7 +217,13 @@ cleaned_ctns_2021 |>
         legend.text= element_text(size=6))
 ```
 
-@fig-5 demonstrates the top three age groups with the highest number of respondents, namely 20 to 24 years old, 15 to 19 years old, and 65 years and older. These results allude to the broader societal trends in which the higher number of younger respondents may be due to the fact that cannabis use has become increasingly normalized and socially accepted among younger generations. On the other hand, the higher number of oldere respondents may be attributed to the fact that cannabis use has become more widely accepted for medicinal purposes, leading to an increase in use among older adults. In terms of the ratio of male and female respondents within these age groups, it is also equal to that of @fig-4. Furthermore, it is important to note that the previous figures revealed a trend of more male respondents reporting cannabis usage via smoking, vaping, and consuming edibles. This indicates that the prevalence of cannabis use may be higher among males across all age groups.
+Interestingly, in @fig-4 the highest number of respondents came from Ontario and Quebec, with British Columbia following in third. This disparity in number of respondents per province may be attributed to the proportion in which both males and females use cannabis for that region in Canada. Among these regions, the highest number of respondents were in the age groups of 20 to 24 years old, 15 to 19 years old, and 65 years and older, indicating that cannabis use is becoming more normalized among younger generations and more widely accepted among older adults. These insights may be used to predict the demographics that engage in cannabis use in Canada for public health and policy.
+
+With the CTADS and CTNS results put together, we can see that overall in Canada, the sociodemographic and economic factors associated with overall increased cannabis use include being male, dwelling in urban areas, having a lower socioeconomic status, lower levels of post-secondary education attainment, and lower employment rates [@citebmc]. In the next section, I discuss the second half of identifying factors surrounding mental health complications including depression, emotional distress, and psychosis have been associated with cannabis use.
+
+## Why do Canadians use cannabis?
+
+The reasons behind cannabis use in Canada are complex and multifaceted, in this section I discuss the potential underlying user behaviour and motivations. While the trend of increased prevalence of cannabis in men may be attributed to the fact that men tend to use cannabis more frequently for recreational purposes, the research article also describes cultural and behavioural acceptance of learned smoking habits to also be a significant contributing factor [@citebmc]. These results are in agreement with other investigations that revealed that males in general have an increased prevalence of cannabis addiction and use disorders, which increase the difficulty to quit overall cannabis intake [@citebmc]. On the flip side, females who experienced poorer self-reported mental health were more likely to be cannabis users as compared to those who reported very good or excellent mental health [@citebmc]. This finding is consistent with a study conducted in the US which found that people who use cannabis have poorer mental well-being than those who don't - especially among female users [@citebmc]. Despite the popular belief that cannabis can improve mental health, long-term use has been associated with negative outcomes, including depression, anxiety, and panic disorders. In general, cannabis use can be driven by various factors such as stress relief, pain management, mental health, socialization, and peer influence, particularly among male groups. These observations are supported by @fig-5, which reveals that the highest number of respondents were aged between 20 and 24 years old, followed by 15 to 19 years old. These age groups are often associated with increased levels of stress, social pressure, and experimentation, which may lead to the use of cannabis as a means of coping or fitting in. Additionally, cannabis has been reported to provide pain relief for chronic pain conditions, making it an attractive option for individuals seeking alternative treatment options. However, it is essential to note that despite potential benefits, long-term cannabis use can lead to negative outcomes such as dependence, addiction, and mental health complications.
 
 ```{r}
 #| echo: false
@@ -229,28 +243,19 @@ cleaned_ctns_2021 |>
         legend.text= element_text(size=6))
 ```
 
-# Discussion {#sec-discussion}
-
-## The Demographic Patterns of Cannabis Usage across Canada
-
-
-
-## Why do Canadians use cannabis?
-
-Data - cannabis product types and their consumption frequency.
-
-Discuss potential underlying user behaviour and motivations.
-
+Understanding the underlying factors that drive cannabis use in Canada is critical in developing effective policies and regulations around its use. While the legalization of cannabis for recreational purposes has been a significant step towards minimizing the harms associated with its use, policymakers must also consider the complex social and behavioral factors that contribute to its use. For example, policies aimed at reducing cannabis use among males should take into account the cultural and social pressures that lead to its frequent use among this group. Similarly, policies aimed at promoting mental health among women should consider the potential negative effects of cannabis use on mental health outcomes. Furthermore, healthcare professionals should be informed about the potential risks and benefits of cannabis use to provide effective counseling to patients who use it for medical purposes. Thus, while the legalization of cannabis has created opportunities for individuals to access its potential benefits, policymakers, healthcare professionals, and the public must remain vigilant about the potential risks associated with its long-term use. Through a comprehensive understanding of the factors that drive cannabis use, policies and regulations can be developed that prioritize public health and safety.
 
 ## Weaknesses and Next Steps {#sec-weaknesses-and-next-steps}
 
-Discuss implications and possible solutions
+The weaknesses of any research study are important to acknowledge and address in order to improve the validity and reliability of future studies. One weakness of the current research on cannabis use in Canada is that it relied on self-reported data from participants, which can be subject to biases and inaccuracies such as recall bias. Moreover, participants may be hesitant to report certain behaviors or may not accurately remember their past behaviors in their drug usage.
 
-\newpage
+Additionally, the Canadian Tobacco and Nicotine Survey (CTNS) is a cross-sectional survey. It collects data from a representative sample of Canadians aged 16 years and older at a single point in time. The survey is conducted occasionally to monitor trends and changes in tobacco, nicotine, and cannabis use behaviors, and as a result, this design does not allow for the examination of causal relationships between variables or for the tracking of changes in drug use over time.
 
-\appendix
+To address these weaknesses, future studies could employ more objective, quantitative measures of cannabis use rather than methods that depend on participants' voluntary response. Another weakness of the current research is that it did not examine the potential differences in cannabis use among different ethnic and socio-economic groups, which could be important in understanding disparities in cannabis use and related outcomes as these tend to have a correlation in socio-economic factors of cannabis use such as lower levels of education and lower employment rates which are not solely dependent on variables such as age or province of residence.
 
-# Appendix {#sec-appendix}
+The findings from this research have important implications for policymakers and healthcare providers in Canada. Specifically, policymakers could use this information to develop targeted prevention and intervention strategies for high-risk groups, such as young males and individuals with poor mental health. Healthcare providers could also use this information to educate their patients about the potential risks and benefits of cannabis use and to screen for cannabis use disorders among their patients.
+
+Overall, while this paper may provide valuable insights on the relationship between cannabis use and demographic factors especially for decisions in policy-making, it is important to consider the various limitations, ethical concerns, and potential biases in the data and interpretation of the insights and findings. Next steps for research in this area could include longitudinal studies that track changes in cannabis use over time and examine the potential long-term effects of cannabis use on health outcomes. Additionally, studies could investigate the effectiveness of different prevention and intervention strategies for cannabis use disorders. Overall, continued research in this area is important for informing policy and practice related to cannabis use in Canada.
 
 \newpage
 
