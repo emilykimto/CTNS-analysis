@@ -1,6 +1,6 @@
 ---
-title: "Understanding Cannabis Usage in Canada: Consistent Demographic Patterns in Cannabis Use Across Canada May Positively Correlate to High Frequency Use"
-subtitle: "An analysis of the 2021 Canadian Tobacco and Nicotine Survey (CTNS)"
+title: "Consistent Demographic Patterns in Cannabis Use Across Canada May Positively Correlate to High Frequency Use"
+subtitle: "Understanding Cannabis Usage in Canada: An analysis of the 2021 Canadian Tobacco and Nicotine Survey (CTNS)"
 author: "Emily Kim"
 thanks: "Code and data are available at: https://github.com/emilykimto/CTNS-analysis.git"
 date: "`r Sys.time()`"
