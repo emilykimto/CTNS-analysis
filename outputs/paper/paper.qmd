@@ -231,18 +231,16 @@ cleaned_ctns_2021 |>
 
 # Discussion {#sec-discussion}
 
-## First discussion point
+## The Demographic Patterns of Cannabis Usage across Canada
 
-The demographic patterns of cannabis usage across Canada.
-Data - consider age (or) gender and region
 
-## Second discussion point
+
+## Why do Canadians use cannabis?
 
 Data - cannabis product types and their consumption frequency.
 
 Discuss potential underlying user behaviour and motivations.
 
-Why do Canadians use cannabis?
 
 ## Weaknesses and Next Steps {#sec-weaknesses-and-next-steps}
 
