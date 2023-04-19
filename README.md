@@ -24,7 +24,7 @@ Following the download of your environment, you will need to download the packag
 
 ## Downloading Data
 
-As the data for this project comes from the Canadian Tobacco and Nicotine Survey (CTNS), we do not have permission to store the data within our repository. To access this data, you will need to download the data physically from [Statistics Canada website](https://www150.statcan.gc.ca/n1/pub/13-25-0001/132500012022001-eng.htm).
+As the data for this project comes from the Canadian Tobacco and Nicotine Survey (CTNS), we do not have permission to store the data within our repository. To access this data, you will need to download the data physically from [Statistics Canada](https://www150.statcan.gc.ca/n1/pub/13-25-0001/132500012022001-eng.htm).
 
 ## Cleaning Data
 
